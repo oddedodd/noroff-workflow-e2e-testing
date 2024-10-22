@@ -1,3 +1,3 @@
 # NOROFF AUTOMATED TESTING
 
-This is a test of automated testing on pull request.
+Another test to see that all tests pass before the branch is merged into main branch.
