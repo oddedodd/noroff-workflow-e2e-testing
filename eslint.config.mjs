@@ -1,6 +1,7 @@
 // eslint.config.mjs
 
-import cypressPlugin from "eslint-plugin-cypress"; // Import the Cypress plugin
+import cypressPlugin from "eslint-plugin-cypress"; // Import Cypress plugin
+import jestPlugin from "eslint-plugin-jest"; // Import Jest plugin
 
 export default [
   {
@@ -37,6 +38,23 @@ export default [
     },
     settings: {
       // Place any Cypress-specific settings if needed
+    },
+  },
+  {
+    // Jest-specific configuration
+    files: ["**/*.test.js", "**/*.spec.js"], // Apply to test files
+    plugins: {
+      jest: jestPlugin,
+    },
+    languageOptions: {
+      globals: jestPlugin.configs.recommended.env, // Enable Jest environment variables
+    },
+    rules: {
+      // Jest recommended rules
+      ...jestPlugin.configs.recommended.rules,
+    },
+    settings: {
+      // Place any Jest-specific settings if needed
     },
   },
 ];
